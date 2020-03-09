@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="table">
+            <thead>
+                <th></th>
+                <th>Id</th>
+                <th>First name</th>
+                <th>list name</th>
+                <th>age</th>
+                <th>Group</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="Let teacher of teachers">
+                    <td><button class="btn btn-dark" (click)="edit(teacher.id)">Изменить</button></td>
+                    <td>{{teacher.id}}</td>
+
+                    <td *ngIf="editRowId === teacher.id">
+                        <input type="text" class="From-control" id="firstName" required[(ngModel)]="teacher.firstName"
+                        #firstName=>
+                    </td>
+                    <td *ngIf="editRowId !== teacher.id">{{teacher.firstName}}</td> 
+
+                    <td *ngIf="editRowId === teacher.id">
+                        <input type="text" class="From-control" id="firstName" required[(ngModel)]="teacher.firstName"
+                        #firstName=>
+                    </td>
+                    <td *ngIf="editRowId !== teacher.id">{{teacher.lastName}}</td>
+
+                    <td *ngIf="editRowId === teacher.id">
+                        <input type="number" class="From-control" id="age" required [{ngModel}]="teacher.age">
+                    </td>
+                    <td *ngIf="editRowId !== teacher.id">{{teacher.age}}</td>
+                    
+                    <td *ngIf="editRowId === teacher.id">
+                        <input type="text" class="From-control" id="group" required [{ngModel}]="teacher.group">
+                    </td>
+                    <td *ngIf="editRowId !== teacher.id">{{teacher.group}}</td>
+                    <td>
+
+                    <button class="btn btn-success" (click)="edit('')" *ngIf="editRowId === teacher.id">Save</button>
+                    </td>
+
+                    <td>
+                    <button class="btn btn-danger" (click)="remove(teacher.id)" *ngIf="editRowId !== teacher.id">Remove</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </div>
+    </div>
+</div>
